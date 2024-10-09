@@ -51,5 +51,20 @@ namespace Football_Game_Console_Simulator
                 Players.Add(new Player(playerName, position, skill)); // Adding the generated players to the list
             }
         }
+
+        public int GetAttackSkill() // Method for calculating the total attacking power of the players
+        {
+            int attackSkill = 0; // Variable to store the total attacking power
+
+            foreach (Player player in Players) // Iterates over all players
+            {
+                if (player.Position == Position.Forward || player.Position == Position.MidFielder) // Checks if players positions are Forward or Midfield
+                {
+                    attackSkill += player.Skill; // Combine the skill levels of all players (Forwards and MidFielders)
+                }
+            }
+
+            return attackSkill;
+        }
     }
 }
