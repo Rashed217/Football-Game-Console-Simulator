@@ -16,9 +16,9 @@ namespace Football_Game_Console_Simulator
 
     public class Player
     {
-        public string Name { get; }
-        public Position Position { get; }
-        public int Skill {  get; }
+        public string Name { get; set; }
+        public Position Position { get; set; }
+        public int Skill {  get; set; }
 
         public Player(string name, Position position, int skill)
         {

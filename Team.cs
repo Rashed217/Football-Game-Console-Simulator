@@ -58,7 +58,7 @@ namespace Football_Game_Console_Simulator
 
             foreach (Player player in Players) // Iterates over all players
             {
-                if (player.Position == Position.Forward || player.Position == Position.MidFielder) // Checks if players positions are Forward or Midfield
+                if (player.Position == Position.Forward || player.Position == Position.MidFielder) // Checks if players positions are Forward or Midfielder
                 {
                     attackSkill += player.Skill; // Combine the skill levels of all players (Forwards and MidFielders)
                 }
@@ -81,5 +81,6 @@ namespace Football_Game_Console_Simulator
 
             return defenseSkill;
         }
+
     }
 }
