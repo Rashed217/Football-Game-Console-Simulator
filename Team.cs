@@ -66,5 +66,20 @@ namespace Football_Game_Console_Simulator
 
             return attackSkill;
         }
+
+        public int GetDefenseSkill() // Method for calculating the total defending power of the players
+        {
+            int defenseSkill = 0; // Variable to store the total defending power
+
+            foreach (Player player in Players) // Iterates over all players
+            {
+                if  (player.Position == Position.Defender || player.Position == Position.Goalkeeper) // Checks if players position are Defender or Goalkeeper
+                {
+                    defenseSkill += player.Skill; // Combine the skill levels of all players (Defenders and Goalkeeper)
+                }
+            }
+
+            return defenseSkill;
+        }
     }
 }
