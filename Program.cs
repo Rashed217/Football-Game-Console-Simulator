@@ -52,6 +52,51 @@ namespace Football_Game_Console_Simulator
 
             Console.WriteLine($"\nCoin toss... {StartingTeamName} will start the game.\n");
 
+
+            SimulatingMatch(Team1, Team2, WhoseAttacking);
+        }
+
+        static void SimulatingMatch(Team Team1, Team Team2, bool WhoseAttacking) // Simulate a match between Team1 and Team2, and determines which team will start by using (bool WhoseAttacking)
+        {
+            for (int half = 0; half < 2; half++) // Simulates two halves for the match
+            {
+                Console.WriteLine($"--- Half {(half + 1)} ---"); // Displays the current half of the match
+
+                for (int turn = 1; turn < 5; turn++) // Iterates four times to represent four turns (2 Attacks and 2 Defenses)
+                {
+                    Team AttackingTeam; // Parameter to hold the Attacking Team
+                    Team DefendingTeam; // Parameter to hold the Defending Team
+
+                    if (WhoseAttacking) // The attacking and defending teams are determined based on the value of (WhoseAttacking boolean)
+                    {
+                        AttackingTeam = Team1;  // If the value of (WhoseAttacking is true), Team1 will attack
+                        DefendingTeam = Team2;
+                    }
+                    else
+                    {
+                        AttackingTeam = Team2; // If the value of (WhoseAttacking is false), Team2 will attack
+                        DefendingTeam = Team1;
+                    }
+
+                    int attackSkill = AttackingTeam.GetAttackSkill(); // Get the total power of the attacking team by calling GetAttackSkill() method
+                    int defenseSkill = DefendingTeam.GetDefenseSkill(); // Get the total power of the defending team by calling GetDefenseSkill() method
+
+                    if (attackSkill > defenseSkill) // Compare between the attack skill and the defense skill of the two teams
+                    {
+                        AttackingTeam.Score++; // If attack skill > the defense skill, increase score by 1
+                        Console.WriteLine($"Turn {turn}: {AttackingTeam.Name} are attacking... Goal!");
+                    }
+                    else // If attack skill < the defense skill, keep the score value as it is
+                    {
+                        Console.WriteLine($"Turn {turn}: {AttackingTeam.Name} are attacking... Defended Successfully!");
+                    }
+
+                    Console.WriteLine($"Current Score: {Team1.Name}:{Team1.Score} | {Team2.Name}: {Team2.Score}");
+
+                    WhoseAttacking = !WhoseAttacking; // Switch the attacking team to the next turn by toggling the WhoseAttacking boolean
+                }
+            }
+
         }
 
     }
