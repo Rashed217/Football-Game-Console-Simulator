@@ -9,14 +9,14 @@ namespace Football_Game_Console_Simulator
     public class Team
     {
         public string Name { get; set; }
-        public List<Player> Players { get; set; }
+        public List<Player> Players { get; set; } 
         public int Score { get; set; }
 
         public Team(string name)
         {
-            Name = name;
-            Players = new List<Player>();
-            Score = 0;
+            Name = name; // Name of the team
+            Players = new List<Player>(); // List to store the generated players
+            Score = 0; // Default value is set by 0
         }
 
         public void GeneratePlayers()

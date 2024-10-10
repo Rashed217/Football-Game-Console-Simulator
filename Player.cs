@@ -22,9 +22,9 @@ namespace Football_Game_Console_Simulator
 
         public Player(string name, Position position, int skill)
         {
-            Name = name;
-            Position = position;
-            Skill = skill;
+            Name = name; // Holds the name of the player
+            Position = position; // Get the position of the player from the enumerator
+            Skill = skill; // Skill level will be generated randomly by using random class (1 - 100)
         }
     }
 }
