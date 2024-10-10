@@ -97,6 +97,24 @@ namespace Football_Game_Console_Simulator
                 }
             }
 
+
+            // Determine the winner team
+
+            if (Team1.Score > Team2.Score) // Checks  if Team1 score > than Team2 score
+            {
+                Console.WriteLine($"Winner : {Team1.Name}"); // Print Team1 is the winner
+            }
+
+            else if (Team1.Score < Team2.Score) // Checks  if Team2 score > than Team1 score
+            {
+                Console.WriteLine($"Winner : {Team2.Name}"); // Print Team2 is the winner
+            }
+
+            else // If the score of Team1 is equal to the score of Team2
+            {
+                Console.WriteLine("It's a Draw!"); // Print it's a draw
+            }
+
         }
 
     }
